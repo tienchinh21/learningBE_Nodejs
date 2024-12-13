@@ -1,0 +1,72 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+
+<body>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/create">Create user</a></li>
+    </ul>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Actions</th>
+        </tr>
+
+        <!-- <% for (let i=0; i < users.length; i++) { %>
+            <tr>
+                <td>
+                    <%= users[i].id %>
+                </td>
+                <td>
+                    <%= users[i].email %>
+                </td>
+                <td>
+                    <%= users[i].name %>
+                </td>
+                <td>
+                    <%= users[i].city %>
+                </td>
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
+            </tr>
+            <% } %> -->
+
+
+        <% users.forEach(user=> { %>
+            <tr>
+                <td>
+                    <%= user.id %>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.name %>
+                </td>
+                <td>
+                    <%= user.city %>
+                </td>
+                <td>
+                    <a href="/edit/<%= user.id %>">Edit</a>
+                    <form action="/delete-user/<%= user.id %>" method="POST">
+                        <button>Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>
